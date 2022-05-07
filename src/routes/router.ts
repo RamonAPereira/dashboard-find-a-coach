@@ -5,7 +5,7 @@ import CoachesList from "../pages/coaches/CoachesList.vue";
 import CoachRegistration from "../pages/coaches/CoachRegistration.vue";
 import ContactCoach from "../pages/requests/ContactCoach.vue";
 import RequestsReceives from "../pages/requests/RequestsReceives.vue";
-import NotFound from "../pages/requests/NotFound.vue";
+import NotFound from "../pages/NotFound.vue";
 
 const routes = [
   { path: "/", redirect: "/coaches" },
