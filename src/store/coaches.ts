@@ -1,16 +1,17 @@
 import { defineStore } from "pinia";
+import Coach from "../types/index";
 
 export const useCoaches = defineStore("main", {
   state: () => {
     return {
-      coaches: [
+      coaches: <Coach[]>[
         {
           id: "c1",
           firstName: "Ramon",
           lastName: "Pereira",
           areas: ["frontend developer", "UI/UX Design"],
           description: "lorem ipsun",
-          hourlyRate: 6,
+          hourlyRates: 6,
         },
         {
           id: "c1",
@@ -18,7 +19,7 @@ export const useCoaches = defineStore("main", {
           lastName: "Mendes",
           areas: ["Engenir", "Dentist"],
           description: "lorem ipsun dolor",
-          hourlyRate: 12,
+          hourlyRates: 12,
         },
       ],
     };
