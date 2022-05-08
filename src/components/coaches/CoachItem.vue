@@ -23,13 +23,18 @@ const coachDetailsLink = computed(() => `/coaches/${props.coach.id}`);
     <h3 class="coach__name">{{ fullName }}</h3>
     <h4 class="coach__payment">{{ paymentHour }}</h4>
     <ul>
-      <li v-for="(area, index) in props.coach.areas" :key="index">
-        {{ area }}
-      </li>
+      <BaseBadge
+        v-for="(area, index) in props.coach.areas"
+        :key="index"
+        :area="area"
+      >
+      </BaseBadge>
     </ul>
     <div class="coach__controls">
-      <router-link :to="coachDetailsLink">Coach Details</router-link>
-      <router-link :to="coachContactLink">Contact</router-link>
+      <BaseButton link :to="coachContactLink" mode="button--outline"
+        >Contact</BaseButton
+      >
+      <BaseButton link :to="coachDetailsLink">Coach Details</BaseButton>
     </div>
   </li>
 </template>
@@ -38,14 +43,7 @@ const coachDetailsLink = computed(() => `/coaches/${props.coach.id}`);
 .coach {
   @apply border border-black rounded-xl p-4 w-full;
 }
-.coach__name {
-  @apply font-bold text-2xl;
-}
-.coach__payment {
-  @apply font-bold;
-}
-
 .coach__controls {
-  @apply flex  justify-end;
+  @apply flex  justify-end gap-4;
 }
 </style>

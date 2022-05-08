@@ -4,7 +4,7 @@ import { computed } from "@vue/reactivity";
 const props = defineProps({
   area: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
