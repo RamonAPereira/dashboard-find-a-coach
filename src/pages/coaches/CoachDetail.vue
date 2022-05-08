@@ -2,7 +2,7 @@
 import { computed, ref } from "@vue/reactivity";
 import { onMounted } from "vue";
 import { useCoaches } from "../../store/coaches";
-import Coach from "../../types";
+import { Coach } from "../../types";
 
 const props = defineProps({
   id: {

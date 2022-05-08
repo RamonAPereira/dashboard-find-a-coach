@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import Coach from "../types/index";
+import { Coach, Filter } from "../types/index";
 
 export const useCoaches = defineStore("main", {
   state: () => {
@@ -25,9 +25,21 @@ export const useCoaches = defineStore("main", {
     };
   },
   getters: {
-    hasCoaches: (state) => {
-      return state.coaches ? state.coaches : false;
+    /* hasCoaches: (state) => {
+      return state.coaches;
+    }, */
+  },
+  actions: {
+    hasCoaches(filters: Filter) {
+      console.log(filters);
+      const coaches = this.coaches;
+
+      return coaches.filter((coach) => {
+        if (filters.frontend && coach.areas.includes("frontend")) return true;
+        if (filters.backend && coach.areas.includes("backend")) return true;
+        if (filters.career && coach.areas.includes("career")) return true;
+        return false;
+      });
     },
   },
-  actions: {},
 });

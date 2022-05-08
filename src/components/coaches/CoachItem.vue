@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from "@vue/reactivity";
 import { PropType } from "vue";
-import Coach from "../../types/index";
+import { Coach } from "../../types/index";
 
 const props = defineProps({
   coach: {

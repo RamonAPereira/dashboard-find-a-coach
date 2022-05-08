@@ -1,4 +1,4 @@
-type Coach = {
+export type Coach = {
   id: String;
   firstName: String;
   lastName: String;
@@ -6,5 +6,8 @@ type Coach = {
   description: String;
   hourlyRates: Number | String;
 };
-
-export default Coach;
+export type Filter = {
+  frontend: Boolean;
+  backend: Boolean;
+  career: Boolean;
+};
