@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { Message } from "../../types/index";
+import { useRequests } from "../../store/requests";
+import { useUser } from "../../store/user";
+import router from "../../routes/router";
 
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const requests = useRequests();
+const user = useUser();
 const message = ref<Message>({
+  id: user.currentUser,
   email: "",
   message: "",
   isValid: true,
@@ -11,29 +16,61 @@ const message = ref<Message>({
 
 const validateMessage = function () {
   message.value.isValid = true;
-  if (!message.value.email.match(emailRegex) || message.value.message === "") {
+  if (!message.value.email.includes("@") || message.value.message === "") {
     message.value.isValid = false;
-    return;
+    return false;
   }
+  return true;
 };
 const submitMessage = function () {
-  validateMessage();
+  if (!validateMessage()) return;
+  requests.addRequest(message.value);
+  router.replace("/coaches");
 };
 </script>
 
 <template>
-  <form @submit.prevent="submitMessage">
-    <div>
-      <label for="email">Your Email</label>
-      <input type="email" id="email" v-model.trim="message.email" />
+  <form @submit.prevent="submitMessage" class="form">
+    <div class="form__control">
+      <label for="email" class="form__label">Your Email</label>
+      <input
+        type="email"
+        id="email"
+        v-model.trim="message.email"
+        class="form__input"
+      />
     </div>
-    <div>
-      <label for="message">Message</label>
-      <textarea rows="5" id="message" v-model.trim="message.message"></textarea>
+    <div class="form__control">
+      <label for="message" class="form__label">Message</label>
+      <textarea
+        rows="5"
+        id="message"
+        v-model.trim="message.message"
+        class="form__input"
+      ></textarea>
     </div>
-    <div>
-      <p v-if="message.isValid">Please enter a valid email and a message</p>
+    <div class="form__action">
+      <p v-if="!message.isValid" class="form__error">
+        Please enter a valid email and a message
+      </p>
       <BaseButton>Send Message</BaseButton>
     </div>
   </form>
 </template>
+
+<style scoped>
+.form {
+  @apply flex flex-col gap-4;
+}
+.form__control {
+  @apply flex flex-col;
+}
+
+.form__input {
+  @apply border focus:outline-yellow-600 focus:outline-1 focus:outline-none focus:bg-yellow-600 focus:bg-opacity-30;
+}
+
+.form__action {
+  @apply flex flex-col items-center;
+}
+</style>

@@ -33,6 +33,7 @@ export type RegisterInputs = {
   formIsValid: Boolean;
 };
 export type Message = {
+  id: String;
   email: String;
   message: any;
   isValid: Boolean;
