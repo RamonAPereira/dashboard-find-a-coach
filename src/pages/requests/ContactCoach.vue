@@ -2,13 +2,13 @@
 import { ref } from "vue";
 import { Message } from "../../types/index";
 import { useRequests } from "../../store/requests";
-import { useUser } from "../../store/user";
-import router from "../../routes/router";
+import { useRoute, useRouter } from "vue-router";
 
+const router = useRouter();
+const route = useRoute();
 const requests = useRequests();
-const user = useUser();
 const message = ref<Message>({
-  id: user.currentUser,
+  id: route.params.id as String,
   email: "",
   message: "",
   isValid: true,

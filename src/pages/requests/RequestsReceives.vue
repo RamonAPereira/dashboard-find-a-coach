@@ -3,6 +3,7 @@ import { useRequests } from "../../store/requests";
 import RequestItem from "../../components/requests/RequestItem.vue";
 
 const requests = useRequests();
+console.log(requests.hasRequests);
 </script>
 
 <template>
@@ -13,7 +14,7 @@ const requests = useRequests();
       </header>
       <ul v-if="requests.hasRequests" class="message__list">
         <RequestItem
-          v-for="(message, index) in requests.requests"
+          v-for="(message, index) in requests.hasRequests"
           :key="index"
           :message="message"
         />
