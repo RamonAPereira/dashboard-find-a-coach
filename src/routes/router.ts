@@ -17,7 +17,7 @@ const routes = [
     children: [{ path: "contact", component: ContactCoach }],
   },
   { path: "/register", component: CoachRegistration },
-  { path: "/request", component: RequestsReceives },
+  { path: "/requests", component: RequestsReceives },
   { path: "/:notFound(.*)", component: NotFound },
 ];
 
