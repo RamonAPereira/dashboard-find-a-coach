@@ -44,6 +44,6 @@ const coachDetailsLink = computed(() => `/coaches/${props.coach.id}`);
   @apply border border-black rounded-xl p-4 w-full;
 }
 .coach__controls {
-  @apply flex  justify-end gap-4;
+  @apply flex  justify-end gap-4 my-2;
 }
 </style>

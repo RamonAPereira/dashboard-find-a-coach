@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
+import router from "../routes/router";
 import { Coach, Filter } from "../types/index";
 
-export const useCoaches = defineStore("main", {
+export const useCoaches = defineStore("coaches", {
   state: () => {
     return {
       coaches: <Coach[]>[
@@ -24,11 +25,7 @@ export const useCoaches = defineStore("main", {
       ],
     };
   },
-  getters: {
-    /* hasCoaches: (state) => {
-      return state.coaches;
-    }, */
-  },
+  getters: {},
   actions: {
     hasCoaches(filters: Filter) {
       console.log(filters);
@@ -40,6 +37,10 @@ export const useCoaches = defineStore("main", {
         if (filters.career && coach.areas.includes("career")) return true;
         return false;
       });
+    },
+    addNewCoach(newCoach: Coach) {
+      this.coaches.push(newCoach);
+      router.replace("/coaches");
     },
   },
 });

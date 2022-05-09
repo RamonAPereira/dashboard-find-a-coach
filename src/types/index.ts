@@ -1,3 +1,7 @@
+type Input = {
+  value: String;
+  isValid: Boolean;
+};
 export type Coach = {
   id: String;
   firstName: String;
@@ -10,4 +14,21 @@ export type Filter = {
   frontend: Boolean;
   backend: Boolean;
   career: Boolean;
+};
+export type RegisterInputs = {
+  firstName: Input;
+  lastName: Input;
+  description: {
+    value: any;
+    isValid: Boolean;
+  };
+  rate: {
+    value: Number;
+    isValid: Boolean;
+  };
+  areas: {
+    value: String[];
+    isValid: Boolean;
+  };
+  formIsValid: Boolean;
 };

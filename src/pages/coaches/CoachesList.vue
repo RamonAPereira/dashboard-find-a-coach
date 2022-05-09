@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import { computed, ref } from "@vue/reactivity";
 import { useCoaches } from "../../store/coaches";
+import { useUser } from "../../store/user";
 import CoachItem from "../../components/coaches/CoachItem.vue";
 import CoachFilter from "../../components/coaches/CoachFilter.vue";
 import { Coach, Filter } from "../../types/index";
 
 const coaches = useCoaches();
+const user = useUser();
 const activeFilters = ref<Filter>({
   frontend: true,
   backend: true,
@@ -29,7 +31,9 @@ const setFilters = function (updatedFilters: Filter) {
     <BaseCard>
       <div class="coach__controls">
         <BaseButton mode="button--outline">Refresh</BaseButton>
-        <BaseButton link to="/register">Register as Coach</BaseButton>
+        <BaseButton v-if="!user.isCoach" link to="/register"
+          >Register as Coach</BaseButton
+        >
       </div>
       <ul class="coach__list" v-if="displayCoaches">
         <CoachItem
