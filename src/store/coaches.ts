@@ -15,7 +15,7 @@ export const useCoaches = defineStore("coaches", {
           hourlyRates: 6,
         },
         {
-          id: "c1",
+          id: "c2",
           firstName: "Pedro",
           lastName: "Mendes",
           areas: ["frontend", "career"],
@@ -38,7 +38,18 @@ export const useCoaches = defineStore("coaches", {
         return false;
       });
     },
-    addNewCoach(newCoach: Coach) {
+    async addNewCoach(newCoach: Coach) {
+      const response = await fetch(
+        `https://find-a-coach-dashboard-default-rtdb.firebaseio.com/coaches/${newCoach.id}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify(newCoach),
+        }
+      );
+
+      if (!response.ok) {
+      }
+
       this.coaches.push(newCoach);
       router.replace("/coaches");
     },

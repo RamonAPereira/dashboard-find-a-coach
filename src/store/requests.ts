@@ -1,16 +1,20 @@
 import { defineStore } from "pinia";
 import { Message } from "../types";
+import { useUser } from "./user";
 
 export const useRequests = defineStore("requests", {
   state: () => {
     return {
-      requests: [] as Message[], //typar
+      requests: [] as Message[],
     };
   },
   getters: {
     hasRequests: (state) => {
-      console.log(state.requests);
-      return state.requests.length > 0 ? state.requests : false;
+      const coachID = useUser().currentUser;
+
+      return state.requests.length > 0
+        ? state.requests.filter((message) => message.id === coachID)
+        : false;
     },
   },
   actions: {
