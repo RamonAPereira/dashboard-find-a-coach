@@ -34,7 +34,7 @@ const props = defineProps({
 
 <style scoped>
 .button {
-  @apply bg-yellow-700 text-neutral-100 py-1 px-3 inline-block rounded-2xl;
+  @apply bg-yellow-700 text-neutral-100 py-1 px-3 inline-block rounded-2xl max-w-fit;
 }
 .button--flat {
   @apply bg-transparent border-none;
