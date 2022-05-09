@@ -32,3 +32,8 @@ export type RegisterInputs = {
   };
   formIsValid: Boolean;
 };
+export type Message = {
+  email: String;
+  message: any;
+  isValid: Boolean;
+};
