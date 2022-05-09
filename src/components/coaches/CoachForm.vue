@@ -176,20 +176,4 @@ const submitNewCoach = function () {
 .form {
   @apply flex flex-col gap-4;
 }
-.form__control {
-  @apply flex flex-col gap-2;
-}
-.form__input {
-  @apply border focus:outline-yellow-600 focus:outline-1 focus:outline-none focus:bg-yellow-600 focus:bg-opacity-30;
-}
-
-.form__input--error {
-  @apply border-red-600;
-}
-.form__label {
-  @apply font-bold;
-}
-.form__error {
-  @apply text-red-600;
-}
 </style>
