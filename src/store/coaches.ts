@@ -53,5 +53,17 @@ export const useCoaches = defineStore("coaches", {
       this.coaches.push(newCoach);
       router.replace("/coaches");
     },
+    async fetchCoaches() {
+      const response = await fetch(
+        "https://find-a-coach-dashboard-default-rtdb.firebaseio.com/coaches.json"
+      );
+      const data: Coach[] = Object.values(await response.json());
+
+      if (!response.ok) {
+      }
+      console.log(data);
+      this.coaches = data;
+      return;
+    },
   },
 });

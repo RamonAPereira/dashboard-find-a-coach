@@ -4,7 +4,7 @@ import { useCoaches } from "./coaches";
 export const useUser = defineStore("user", {
   state: () => {
     return {
-      currentUser: "c3" as String,
+      currentUser: "c4" as String,
     };
   },
   getters: {

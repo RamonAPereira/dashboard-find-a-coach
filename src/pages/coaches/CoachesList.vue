@@ -5,6 +5,7 @@ import { useUser } from "../../store/user";
 import CoachItem from "../../components/coaches/CoachItem.vue";
 import CoachFilter from "../../components/coaches/CoachFilter.vue";
 import { Coach, Filter } from "../../types/index";
+import { onMounted } from "vue";
 
 const coaches = useCoaches();
 const user = useUser();
@@ -21,6 +22,11 @@ const displayCoaches = computed<Coach[]>(() =>
 const setFilters = function (updatedFilters: Filter) {
   activeFilters.value = updatedFilters;
 };
+const loadCoaches = function () {
+  coaches.fetchCoaches();
+};
+
+onMounted(loadCoaches);
 </script>
 
 <template>
@@ -30,7 +36,9 @@ const setFilters = function (updatedFilters: Filter) {
   <section>
     <BaseCard>
       <div class="coach__controls">
-        <BaseButton mode="button--outline">Refresh</BaseButton>
+        <BaseButton mode="button--outline" @click="loadCoaches"
+          >Refresh</BaseButton
+        >
         <BaseButton v-if="!user.isCoach" link to="/register"
           >Register as Coach</BaseButton
         >
