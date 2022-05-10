@@ -4,7 +4,7 @@ import { useCoaches } from "./coaches";
 export const useUser = defineStore("user", {
   state: () => {
     return {
-      currentUser: "c5" as String,
+      currentUser: new Date().getMilliseconds().toString() as String,
     };
   },
   getters: {

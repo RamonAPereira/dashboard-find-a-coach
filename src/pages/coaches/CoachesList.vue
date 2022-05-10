@@ -15,7 +15,7 @@ const activeFilters = ref<Filter>({
   career: true,
 });
 
-const displayCoaches = computed<Coach[]>(() =>
+const displayCoaches = computed<Coach[] | boolean>(() =>
   coaches.hasCoaches(activeFilters.value)
 );
 
@@ -33,6 +33,7 @@ onMounted(loadCoaches);
   <section>
     <CoachFilter @change-filter="setFilters" />
   </section>
+
   <section>
     <BaseCard>
       <div class="coach__controls">
