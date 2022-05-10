@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import { useRequests } from "../../store/requests";
 import RequestItem from "../../components/requests/RequestItem.vue";
+import { onMounted } from "vue";
 
 const requests = useRequests();
-console.log(requests.hasRequests);
+
+onMounted(requests.fetchRequests);
 </script>
 
 <template>
