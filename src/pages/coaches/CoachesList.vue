@@ -48,7 +48,7 @@ onMounted(loadCoaches);
         <CoachItem
           v-for="(coach, index) in displayCoaches"
           :key="index"
-          :coach="coach"
+          :coach="(coach as Coach)"
         />
       </ul>
       <p v-else>No Coaches Found</p>
