@@ -4,8 +4,17 @@ import { useCoaches } from "../../store/coaches";
 import { useUser } from "../../store/user";
 import CoachItem from "../../components/coaches/CoachItem.vue";
 import CoachFilter from "../../components/coaches/CoachFilter.vue";
-import { Coach, Filter } from "../../types/index";
+import { Filter } from "../../types/index";
 import { onMounted } from "vue";
+
+type Coach = {
+  id: String;
+  firstName: String;
+  lastName: String;
+  areas: String[];
+  description: String;
+  hourlyRates: Number | String;
+};
 
 const coaches = useCoaches();
 const user = useUser();
