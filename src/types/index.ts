@@ -38,4 +38,13 @@ export type Message = {
   message: any;
   isValid: Boolean;
 };
+export type User = {
+  token: null | String;
+  userId: null | String;
+  tokenExpiration: null | boolean;
+};
+export type newUser = {
+  email: String;
+  password: String;
+};
 //teste

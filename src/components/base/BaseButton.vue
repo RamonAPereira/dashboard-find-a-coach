@@ -37,10 +37,10 @@ const props = defineProps({
   @apply bg-yellow-700 text-neutral-100 py-1 px-3 inline-block rounded-2xl max-w-fit;
 }
 .button--flat {
-  @apply bg-transparent border-none;
+  @apply bg-transparent border-none text-yellow-700;
 }
 
 .button--outline {
-  @apply border border-yellow-700 bg-transparent text-yellow-700;
+  @apply border border-yellow-700 bg-transparent text-yellow-700 hover:bg-yellow-700 hover:bg-opacity-10;
 }
 </style>

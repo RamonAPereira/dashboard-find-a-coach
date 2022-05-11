@@ -69,7 +69,7 @@ const submitNewCoach = function () {
     return;
   }
   const newCoach: Coach = {
-    id: user.currentUser,
+    id: user.currentUser.userId as String,
     firstName: coachInputs.value.firstName.value,
     lastName: coachInputs.value.lastName.value,
     areas: coachInputs.value.areas.value,
@@ -172,8 +172,4 @@ const submitNewCoach = function () {
   </form>
 </template>
 
-<style scoped>
-.form {
-  @apply flex flex-col gap-4;
-}
-</style>
+<style scoped></style>

@@ -5,6 +5,7 @@ import CoachesList from "../pages/coaches/CoachesList.vue";
 import CoachRegistration from "../pages/coaches/CoachRegistration.vue";
 import ContactCoach from "../pages/requests/ContactCoach.vue";
 import RequestsReceives from "../pages/requests/RequestsReceives.vue";
+import UserAuth from "../pages/auth/UserAuth.vue";
 import NotFound from "../pages/NotFound.vue";
 
 const routes = [
@@ -17,6 +18,7 @@ const routes = [
     children: [{ path: "contact", component: ContactCoach }],
   },
   { path: "/register", component: CoachRegistration },
+  { path: "/auth", component: UserAuth },
   { path: "/requests", component: RequestsReceives },
   { path: "/:notFound(.*)", component: NotFound },
 ];

@@ -20,6 +20,10 @@ import TheHeader from "./components/layout/TheHeader.vue";
   @apply font-bold;
 }
 
+.form {
+  @apply flex flex-col gap-4;
+}
+
 .form__control {
   @apply flex flex-col gap-2;
 }

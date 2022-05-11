@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+import { computed } from "@vue/reactivity";
+import { useUser } from "../../store/user";
+
+const user = useUser();
+
+const isLogged = computed<boolean>(() => {
+  return user.isLogged;
+});
+</script>
+
 <template>
   <header class="header">
     <nav class="navigation">
@@ -11,9 +22,19 @@
           </router-link>
         </li>
         <li>
-          <router-link class="navigation__link" to="/requests">
+          <router-link v-if="isLogged" class="navigation__link" to="/requests">
             Requests
           </router-link>
+          <router-link v-else class="navigation__link" to="/auth"
+            >Login</router-link
+          >
+        </li>
+        <li
+          v-if="isLogged"
+          class="navigation__link cursor-pointer"
+          @click="user.logout"
+        >
+          Logout
         </li>
       </ul>
     </nav>

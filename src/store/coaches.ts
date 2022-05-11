@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import router from "../routes/router";
 import { Coach, Filter } from "../types/index";
+import { useUser } from "./user";
 
 export const useCoaches = defineStore("coaches", {
   state: () => {
@@ -26,7 +27,9 @@ export const useCoaches = defineStore("coaches", {
     },
     async addNewCoach(newCoach: Coach) {
       const response = await fetch(
-        `https://find-a-coach-dashboard-default-rtdb.firebaseio.com/coaches/${newCoach.id}.json`,
+        `https://find-a-coach-dashboard-default-rtdb.firebaseio.com/coaches/${
+          newCoach.id
+        }.json?auth=${useUser().currentUser.token}`,
         {
           method: "PUT",
           body: JSON.stringify(newCoach),

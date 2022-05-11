@@ -27,6 +27,7 @@ const activeFilters = ref<Filter>({
 const displayCoaches = computed<Coach[] | boolean>(() =>
   coaches.hasCoaches(activeFilters.value)
 );
+const isLogged = computed<boolean>(() => user.isLogged);
 
 const setFilters = function (updatedFilters: Filter) {
   activeFilters.value = updatedFilters;
@@ -49,7 +50,10 @@ onMounted(loadCoaches);
         <BaseButton mode="button--outline" @click="loadCoaches"
           >Refresh</BaseButton
         >
-        <BaseButton v-if="!user.isCoach" link to="/register"
+        <BaseButton v-if="!isLogged" link to="/auth"
+          >Login to register as coach</BaseButton
+        >
+        <BaseButton v-if="!user.isCoach && isLogged" link to="/register"
           >Register as Coach</BaseButton
         >
       </div>

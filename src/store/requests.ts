@@ -10,7 +10,7 @@ export const useRequests = defineStore("requests", {
   },
   getters: {
     hasRequests: (state) => {
-      const coachID = useUser().currentUser;
+      const coachID = useUser().currentUser.userId;
 
       return state.requests.length > 0
         ? state.requests.filter((message) => message.id === coachID)
@@ -26,10 +26,12 @@ export const useRequests = defineStore("requests", {
       const data = await response.json();
     },
     async fetchRequests() {
-      const coachID = useUser().currentUser;
+      const coachID = useUser().currentUser.userId;
 
       const response = await fetch(
-        `https://find-a-coach-dashboard-default-rtdb.firebaseio.com/requests/${coachID}.json`
+        `https://find-a-coach-dashboard-default-rtdb.firebaseio.com/requests/${coachID}.json?auth=${
+          useUser().currentUser.token
+        }`
       );
       const data: Message[] = Object.values(await response.json());
       this.requests = data;
