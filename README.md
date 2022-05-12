@@ -1,16 +1,56 @@
-# Vue 3 + TypeScript + Vite
+# Find a Coach
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Find a coach foi um projeto feito com a finalidade de praticar minha stack, é um dashboard em que o usuário pode encontrar um coach (mentor) que seja compatível com o que ele busca com base na descrição ou no preço por hora de cada coach, o usuário também pode se registrar e se tornar um coach ele mesmo. Todos os dados são mantidos no firebase.
 
-## Recommended IDE Setup
+## O Projeto
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+### Features
 
-## Type Support For `.vue` Imports in TS
+Usuário não registrado:
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+- ver uma lista filtrada de todos os coaches do sistema.
+- enviar uma mensagem para qualquer coach.
+- ver detalhes sobre cada coach.
+- criar um login e senha para se registrar como coach.
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+Usuário cadastrado:
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+- pode se registrar como coach preenchendo um formulário com informações úteis.
+
+Coach:
+
+- Tem acesso às mensagens enviadas por usuários cadastrados, não cadastrados e por outros coaches.
+
+### Screenshot
+
+![](src/assets/screeShot.png)
+
+### Links
+
+- Live Site URL: [Find a Coach](https://find-a-coach-dashboard.web.app/coaches)
+
+## Stack
+
+- Semantic HTML5 markup
+- Composition API
+- [Vue.js](https://vuejs.org/) - JavaScript framework
+- [Pinia](https://pinia.vuejs.org/) - State manager
+- [Vue Router](https://router.vuejs.org/) - Router
+- [Tailwind](https://tailwindcss.com/) - For styles
+- [Firebase](https://firebase.google.com/?hl=pt-br) - Database e Auth
+
+## Autor
+
+- Website - [Ramon Pereira](https://github.com/RamonAPereira)
+- Frontend Mentor - [@ramonapereira](https://www.frontendmentor.io/profile/RamonAPereira)
+- Twitter - [@ramonnzd](https://www.twitter.com/ramonnzd)
+
+## Execultar localmente
+
+```
+npm i
+```
+
+```
+npm run dev
+```
