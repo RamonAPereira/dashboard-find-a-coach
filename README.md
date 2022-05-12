@@ -21,10 +21,6 @@ Coach:
 
 - Tem acesso às mensagens enviadas por usuários cadastrados, não cadastrados e por outros coaches.
 
-### Screenshot
-
-![](./src/assets/screeShot.png)
-
 ### Links
 
 - Live Site URL: [Find a Coach](https://find-a-coach-dashboard.web.app/coaches)
