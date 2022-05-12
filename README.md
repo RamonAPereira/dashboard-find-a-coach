@@ -23,7 +23,7 @@ Coach:
 
 ### Screenshot
 
-![](src/assets/screeShot.png)
+![](./assets/screeShot.png)
 
 ### Links
 
